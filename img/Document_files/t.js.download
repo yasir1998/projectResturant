@@ -1,0 +1,51 @@
+let bar = document.querySelector('#bars')
+let navbar = document.querySelector('.navigation')
+bar.onclick = () => {
+    bar.classList.toggle('fa-times');
+    navbar.classList.toggle('active');
+}
+
+let swiper = new Swiper(".home-slider", {
+    spaceBetween: 30,
+    centeredSlides: true,
+    autoplay: {
+        delay: 15000,
+        disableOnInteraction: false,
+    },
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+    },
+    loop:true,
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    const searchIcon = document.getElementById('search-icon');
+    const searchBar = document.getElementById('search-bar');
+    const closeSearchButton = document.getElementById('close-search');
+
+    // Toggle search bar visibility when clicking the search icon
+    searchIcon.addEventListener('click', function () {
+        console.log('Search icon clicked');
+       
+        searchBar.style.display = (searchBar.style.display === 'none' || searchBar.style.display === '')
+            ? 'block'
+            : 'none';
+    });
+
+    // Close the search bar when clicking the close button
+    closeSearchButton.addEventListener('click', function () {
+        console.log('Search icon clicked');
+        searchBar.style.display = 'none';
+    });
+});
+
+// let videos=document.getElementById('vid')
+// window.addEventListener('scroll',()=>{
+//     let value=window.scrollY;
+//     let value2=window.scrollX;
+//     videos.style.top=value*-1.2+'px';
+//     videos.style.left=value2*1.2+'px';
+//     videos.style.right=value2*1.2+'px';
+//     videos.style.bottom=value*-1.2+'px';
+// })
