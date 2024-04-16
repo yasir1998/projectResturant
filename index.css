@@ -88,12 +88,10 @@ header .navigation a::before {
   position: absolute;
   bottom: -10%;
   left: 25px;
-  background: linear-gradient(
-    to right,
-    rgb(255, 251, 0),
-    rgb(136, 0, 75),
-    rgb(250, 0, 0)
-  );
+  background: linear-gradient(to right,
+      rgb(255, 251, 0),
+      rgb(136, 0, 75),
+      rgb(250, 0, 0));
   width: 0;
   height: 0.14rem;
   transition: 0.3s;
@@ -189,16 +187,16 @@ header .search-bar button {
 /* slider style start */
 
 .home .home-slider .slide {
+  position: relative;
   display: flex;
   align-items: center;
   height: 100vh;
   justify-content: flex-start;
-  position: relative;
 }
 
 /* video  start*/
 .home .home-slider .slide::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
@@ -228,28 +226,33 @@ header .search-bar button {
   background-size: cover;
   background-repeat: no-repeat;
 }
+
 /* video end  */
 
 /* .content start */
 .home .home-slider .slide .content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-70%, -50%);
   text-align: center;
   padding-left: 20rem;
   z-index: 2;
 }
 
 .home .home-slider .slide .content h1 {
-  color: rgb(253, 2, 98);
+  color: rgb(184, 129, 150);
   font-size: 4rem;
 }
 
 .home .home-slider .slide .content h3 {
-  color: var(--red);
+  color: rgb(243, 238, 238);
   font-size: 3.3rem;
   font-weight: bold;
 }
 
 .home .home-slider .slide .content p {
-  color: var(--light-yelow);
+  color: var(--cayn);
   font-size: 1.4rem;
   letter-spacing: 1px;
   padding: 0.5rem 0;
@@ -274,7 +277,7 @@ header .search-bar button {
 }
 
 .btn:before {
-  content: "";
+  content: '';
   width: 100%;
   height: 100%;
   background: linear-gradient(to left, rgb(175, 135, 2), rgb(165, 1, 130));
@@ -289,11 +292,27 @@ header .search-bar button {
   left: 0;
 }
 
-.swiper-pagination-bullet {
-  background: var(--light-yelow) !important;
-  width: 12px !important;
-  height: 12px !important;
-  border-radius: 50% !important;
+.prev-button,
+.next-button {
+  position: absolute;
+  top: 50%;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  border-radius: 50%;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 999;
+}
+
+.prev-button {
+  left: 10px;
+}
+
+.next-button {
+  right: 10px;
 }
 
 /* slider style end */
@@ -532,12 +551,10 @@ section {
 }
 
 .reservation .form {
-  background: linear-gradient(
-    to top,
-    rgb(49, 1, 1),
-    rgb(247, 169, 169),
-    rgb(5, 90, 248)
-  );
+  background: linear-gradient(to top,
+      rgb(49, 1, 1),
+      rgb(247, 169, 169),
+      rgb(5, 90, 248));
   width: 50%;
   padding: 10rem 6%;
 }
@@ -713,6 +730,7 @@ section {
   }
 
   header .navigation {
+    display: none;
     position: absolute;
     top: 100%;
     left: 0;
@@ -721,11 +739,10 @@ section {
     border-top: 0.1rem solid rgb(7, 7, 7);
     border-bottom: 0.1rem solid rgb(12, 12, 12);
     padding: 1rem;
-    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
   }
 
   header .navigation.active {
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    display: inline-block;
   }
 
   header .navigation a {

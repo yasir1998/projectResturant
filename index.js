@@ -5,19 +5,7 @@ bar.onclick = () => {
   navbar.classList.toggle("active");
 };
 
-let swiper = new Swiper(".home-slider", {
-  spaceBetween: 30,
-  centeredSlides: true,
-  autoplay: {
-    delay: 15000,
-    disableOnInteraction: false,
-  },
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-  },
-  loop: true,
-});
+
 
 document.addEventListener("DOMContentLoaded", function () {
   const searchIcon = document.getElementById("search-icon");
@@ -51,4 +39,49 @@ document.addEventListener("DOMContentLoaded", function () {
   // Set current date
   var currentDate = new Date().toISOString().slice(0, 10);
   document.getElementById("dateInput").value = currentDate;
+});
+
+
+document.addEventListener('DOMContentLoaded', function () {
+  const slides = document.querySelectorAll('.swiper-slide');
+  const prevButton = document.querySelector('.prev-button');
+  const nextButton = document.querySelector('.next-button');
+  let currentIndex = 0;
+  let intervalId;
+
+  function showSlide(index) {
+    slides.forEach((slide) => (slide.style.display = 'none'));
+    slides[index].style.display = 'block';
+  }
+
+  function moveToNextSlide() {
+    currentIndex = (currentIndex + 1) % slides.length;
+    showSlide(currentIndex);
+  }
+
+  function moveToPrevSlide() {
+    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+    showSlide(currentIndex);
+  }
+
+  function startAutoSlide() {
+    intervalId = setInterval(moveToNextSlide, 5000);
+  }
+
+  function stopAutoSlide() {
+    clearInterval(intervalId);
+  }
+
+  prevButton.addEventListener('click', () => {
+    moveToPrevSlide();
+    stopAutoSlide();
+  });
+
+  nextButton.addEventListener('click', () => {
+    moveToNextSlide();
+    stopAutoSlide();
+  });
+
+  startAutoSlide();
+  showSlide(currentIndex);
 });
